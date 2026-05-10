@@ -77,4 +77,21 @@ const trainingDays = [
     blocks: [
       {
         name: "Supersatz A",
-}
+        rest: "75 Sek Pause",
+        exercises: [
+          { name: "Kettlebell Thruster", sets: "4", reps: "10", note: "Ganzkörperdruck" },
+          { name: "Gorilla Row", sets: "4", reps: "10", note: "Rücken dicht halten" },
+        ],
+      },
+      {
+        name: "Supersatz B",
+        rest: "75 Sek Pause",
+        exercises: [
+          { name: "Floor Press", sets: "4", reps: "10", note: "Brust + Trizeps" },
+          { name: "Windmill", sets: "3", reps: "8 pro Seite", note: "Core + Schulterkontrolle" },
+        ],
+      },
+      {
+        name: "Arm-Supersatz",
+        rest: "45 Sek Pause",
+        exercises: [
