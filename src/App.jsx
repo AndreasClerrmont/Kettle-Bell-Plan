@@ -1,94 +1,101 @@
 import React, { useMemo, useState } from "react";
-        <div className="mb-6 grid gap-4 md:grid-cols-[1fr_320px]">
-          <div className="relative rounded-2xl sm:rounded-3xl bg-white p-4 shadow-md">
-            <span className="pointer-events-none absolute left-8 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Übung, Muskelgruppe oder Tag suchen..."
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 outline-none focus:ring-2 focus:ring-slate-900"
-            />
-          </div>
 
-          <Card className="flex items-center gap-3 p-4">
-            <span className="text-2xl">🎯</span>
-            <div>
-              <p className="font-bold">Ziel</p>
-              <p className="text-sm text-slate-600">Muskelwachstum + funktionelle Kraft</p>
-            </div>
-          </Card>
-        </div>
+const trainingDays = [
+  {
+    day: "Tag 1",
+    title: "Kraft & Spannung",
+    schedule: "Montag",
+    focus: "Ganzkörper • schwere Spannung • Arme schwer",
+    warmup: ["Halos", "Hip Openers", "leichte Swings", "Shoulder CARs"],
+    blocks: [
+      { name: "Supersatz A", rest: "90 Sek Pause", exercises: [
+        { name: "Double Kettlebell Front Squat", sets: "4", reps: "6–8", note: "schwer, aufrechte Haltung" },
+        { name: "Weighted Pull-Up oder Renegade Row", sets: "4", reps: "6–8", note: "Rücken hart kontrahieren" },
+      ]},
+      { name: "Supersatz B", rest: "90 Sek Pause", exercises: [
+        { name: "Single Arm Clean & Push Press", sets: "4", reps: "6 pro Seite", note: "explosiv, stabiler Lockout" },
+        { name: "Turkish Get-Up", sets: "3", reps: "1–2 pro Seite", note: "Technik vor Gewicht" },
+      ]},
+      { name: "Arm-Supersatz", rest: "45–60 Sek Pause", exercises: [
+        { name: "Kettlebell Hammer Curl", sets: "3", reps: "10", note: "kontrolliert, kein Schwung" },
+        { name: "Overhead Tricep Extension", sets: "3", reps: "10", note: "voller Stretch" },
+      ]},
+    ],
+    finisher: "5 Min EMOM: 15 Heavy Swings",
+  },
+  {
+    day: "Tag 2",
+    title: "Explosivität & Athletik",
+    schedule: "Dienstag",
+    focus: "Ganzkörper • Snatch • Schulter-Finisher",
+    warmup: ["Jump Squats", "Mobility", "leichte Snatches"],
+    blocks: [
+      { name: "Supersatz A", rest: "75 Sek Pause", exercises: [
+        { name: "Kettlebell Snatch", sets: "4", reps: "8 pro Seite", note: "explosiv, sauberer Pfad" },
+        { name: "Front Rack Reverse Lunge", sets: "4", reps: "8 pro Bein", note: "stabiler Rumpf" },
+      ]},
+      { name: "Supersatz B", rest: "75 Sek Pause", exercises: [
+        { name: "Bottom-Up Press", sets: "3", reps: "8", note: "Schulterstabilität" },
+        { name: "Single Leg Romanian Deadlift", sets: "3", reps: "8", note: "Balance + hintere Kette" },
+      ]},
+      { name: "Schulter-Finisher", rest: "30–45 Sek Pause", exercises: [
+        { name: "Kettlebell Lateral Raise", sets: "3", reps: "12–15", note: "langsam, seitliche Schulter" },
+      ]},
+    ],
+    finisher: "5 Min AMRAP: 5 Burpees, 10 Swings, 15 Mountain Climbers",
+  },
+  {
+    day: "Tag 3",
+    title: "Volumen & Stabilität",
+    schedule: "Donnerstag",
+    focus: "Ganzkörper • Hypertrophie • Arm-Pump",
+    warmup: ["Windmills", "Halos", "leichte Rows"],
+    blocks: [
+      { name: "Supersatz A", rest: "75 Sek Pause", exercises: [
+        { name: "Kettlebell Thruster", sets: "4", reps: "10", note: "Ganzkörperdruck" },
+        { name: "Gorilla Row", sets: "4", reps: "10", note: "Rücken dicht halten" },
+      ]},
+      { name: "Supersatz B", rest: "75 Sek Pause", exercises: [
+        { name: "Floor Press", sets: "4", reps: "10", note: "Brust + Trizeps" },
+        { name: "Windmill", sets: "3", reps: "8 pro Seite", note: "Core + Schulterkontrolle" },
+      ]},
+      { name: "Arm-Supersatz", rest: "45 Sek Pause", exercises: [
+        { name: "Alternating Curl", sets: "3", reps: "12", note: "Pump, sauber führen" },
+        { name: "Close-Grip Push-Up auf Kettlebells", sets: "3", reps: "12–15", note: "Trizeps-Fokus" },
+      ]},
+    ],
+    finisher: "5 Min Density Block: so viele saubere Runden wie möglich — 10 Push-ups, 10 Swings",
+  },
+  {
+    day: "Tag 4",
+    title: "Power Endurance & Conditioning",
+    schedule: "Freitag",
+    focus: "Ganzkörper • Complex • Carry-Stabilität",
+    warmup: ["Dynamic Stretching", "explosive Swings", "leichte Cleans"],
+    blocks: [
+      { name: "Supersatz A", rest: "90 Sek Pause", exercises: [
+        { name: "Double Kettlebell Clean Complex", sets: "4", reps: "6", note: "Clean → Squat → Press" },
+        { name: "Pull-Up oder High Pull", sets: "4", reps: "8", note: "Zugkraft + Explosivität" },
+      ]},
+      { name: "Supersatz B", rest: "60 Sek Pause", exercises: [
+        { name: "Walking Lunges", sets: "3", reps: "10 pro Bein", note: "unilateral, kontrolliert" },
+        { name: "Plank Drag", sets: "3", reps: "10 pro Seite", note: "Anti-Rotation" },
+      ]},
+      { name: "Schulter-Stabilität", rest: "60 Sek Pause", exercises: [
+        { name: "Bottom-Up Carry oder Overhead Carry", sets: "3", reps: "30–40 Sek pro Seite", note: "stabil, nicht hetzen" },
+      ]},
+    ],
+    finisher: "5 Min alternierend: 20 Swings, 10 Burpees",
+  },
+];
 
-        <div className="mb-6 rounded-2xl sm:rounded-3xl bg-white p-4 shadow-md">
-          <div className="mb-4 flex flex-wrap gap-2">
-            {[1, 2, 3, 4, 5].map((week) => (
-              <button
-                key={week}
-                type="button"
-                onClick={() => setActiveWeek(week)}
-                className={`rounded-2xl px-4 py-2 text-sm font-bold transition ${activeWeek === week ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
-              >
-                Woche {week}
-              </button>
-            ))}
-          </div>
+const progressRules = [
+  "Kraft: 6–8 Wiederholungen. Wenn alle Sätze sauber sitzen, Gewicht erhöhen.",
+  "Hypertrophie: 8–12 Wiederholungen. Erst Reps steigern, dann Gewicht.",
+  "Isolation: sauberer Pump, keine Schwungwiederholungen.",
+  "Woche 6: Deload mit ca. 70 % Volumen.",
+];
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 className="font-bold text-slate-950">Trainings-Tracking • Woche {activeWeek}</h2>
-              <p className="text-sm text-slate-600">
-                Trage pro Satz Gewicht, Wiederholungen und Notizen ein. Jede Woche wird separat gespeichert und bleibt lokal im Browser erhalten.
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={clearWorkoutLog}
-              className="rounded-2xl bg-slate-100 px-4 py-2 text-sm font-bold text-slate-800 transition hover:bg-slate-200"
-            >
-              Log löschen
-            </button>
-          </div>
-        </div>
-
-        {(() => {
-          window.__ACTIVE_WEEK__ = activeWeek;
-          return null;
-        })()}
-
-        <section className="mb-8 grid gap-4">
-          {filteredDays.map((day) => (
-            <TrainingDayCard key={day.day} item={day} />
-          ))}
-        </section>
-
-        <section className="grid gap-4 md:grid-cols-2">
-          <Card className="p-5">
-            <h2 className="mb-3 text-xl font-bold">Progression</h2>
-            <ul className="space-y-2 text-sm text-slate-700">
-              {progressRules.map((rule) => (
-                <li key={rule} className="flex gap-2">
-                  <span className="mt-0.5 shrink-0">✅</span>
-                  <span>{rule}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-
-          <Card className="p-5">
-            <h2 className="mb-3 text-xl font-bold">Empfohlene Kettlebells</h2>
-            <p className="text-sm text-slate-700">
-              Leicht, mittel, schwer. Beispiel: 12 kg, 16 kg, 20–24 kg. Optional 28–32 kg für Swings und schwere Squats.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Technik > Ego", "Core anspannen", "saubere Snatches", "explosiv hoch", "kontrolliert runter"].map((tag) => (
-                <span key={tag} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </Card>
-        </section>
-      </div>
-    </main>
-  );
-}
+function getSetCount(sets) {
+  const parsed = parseInt(String(sets), 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
