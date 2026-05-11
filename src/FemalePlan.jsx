@@ -3,116 +3,119 @@ import React, { useState } from "react";
 const workouts = [
   {
     day: "Montag",
-    title: "Kraft & Spannung",
-    focus: "Ganzkörper • Arme schwer",
-    duration: "40 Min",
+    title: "Glute Strength",
+    focus: "Po • Core • Beckenboden",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Supersatz A",
+        name: "Glute Power",
         exercises: [
-          "Double Kettlebell Front Squat — 4×6–8",
-          "Weighted Pull-Up oder Renegade Row — 4×6–8",
+          "Heavy KB Hip Thrust — 4×15",
+          "Bulgarian Split Squat — 4×10 je Bein",
         ],
       },
       {
-        name: "Supersatz B",
+        name: "Waist & Stability",
         exercises: [
-          "Single Arm Clean & Push Press — 4×6 je Seite",
-          "Turkish Get-Up — 3×1–2 je Seite",
+          "Dead Bug — 3×12",
+          "Suitcase Carry — 3×40 Sek je Seite",
         ],
       },
       {
-        name: "Arm-Finisher",
+        name: "Glute Burn",
         exercises: [
-          "Hammer Curl — 3×10",
-          "Overhead Tricep Extension — 3×10",
+          "Frog Pumps — 3×30",
+          "Glute Bridge Hold — 3×45 Sek",
         ],
       },
     ],
   },
+
   {
     day: "Dienstag",
-    title: "Explosivität & Athletik",
-    focus: "Snatch • Schulter",
-    duration: "40 Min",
+    title: "Leg Sculpt",
+    focus: "Beine • Po • Conditioning",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Power Block",
+        name: "Leg Builder",
         exercises: [
-          "Kettlebell Snatch — 4×8",
-          "Front Rack Reverse Lunge — 4×8",
+          "Goblet Squat Tempo — 4×12",
+          "Walking Lunges — 4×12 je Bein",
         ],
       },
       {
-        name: "Stabilität",
+        name: "Hamstrings + Glutes",
         exercises: [
-          "Bottom-Up Press — 3×8",
-          "Single Leg Romanian Deadlift — 3×8",
+          "Romanian Deadlift — 4×12",
+          "Single Leg Deadlift — 3×10 je Bein",
         ],
       },
       {
-        name: "Shoulder Burn",
+        name: "Conditioning",
         exercises: [
-          "Kettlebell Lateral Raise — 3×15",
-          "Band Pull Apart — 3×20",
+          "Heavy Swings — 5×20",
+          "Mountain Climbers — 5×30 Sek",
         ],
       },
     ],
   },
+
   {
     day: "Donnerstag",
-    title: "Volumen & Stabilität",
-    focus: "Hypertrophie • Arm-Pump",
-    duration: "40 Min",
+    title: "Booty Pump",
+    focus: "Runder Po • Taille",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Supersatz A",
+        name: "Upper Glutes",
         exercises: [
-          "Kettlebell Thruster — 4×10",
-          "Gorilla Row — 4×10",
+          "Step-Ups — 4×12 je Bein",
+          "Curtsy Lunge — 4×12 je Bein",
         ],
       },
       {
-        name: "Supersatz B",
+        name: "Waist Line",
         exercises: [
-          "Floor Press — 4×10",
-          "Windmill — 3×8",
+          "Russian Twist — 4×20",
+          "Plank Shoulder Tap — 4×20",
         ],
       },
       {
-        name: "Arm-Fokus",
+        name: "Glute Finisher",
         exercises: [
-          "Alternating Curl — 3×12",
-          "Close-Grip Push-Up — 3×15",
+          "Swing Burnout — 100 Reps",
+          "Frog Pumps — 3×40",
         ],
       },
     ],
   },
+
   {
     day: "Freitag",
-    title: "Power Endurance",
-    focus: "Carry • Conditioning",
-    duration: "40 Min",
+    title: "Athletic Shape",
+    focus: "Straff • Athletisch • Arme",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Complex Block",
+        name: "Athletic Block",
         exercises: [
-          "Double KB Clean Complex — 4×6",
-          "Pull-Up oder High Pull — 4×8",
+          "Clean & Press — 4×10",
+          "Reverse Lunge — 4×10 je Bein",
         ],
       },
       {
-        name: "Core + Stabilität",
+        name: "Tight Arms",
         exercises: [
-          "Walking Lunges — 3×10",
-          "Plank Drag — 3×10",
+          "Overhead Tricep Extension — 3×15",
+          "Hammer Curl — 3×15",
         ],
       },
       {
-        name: "Carry Finisher",
+        name: "Core + Pelvic Floor",
         exercises: [
-          "Bottom-Up Carry — 3×40 Sek",
-          "Heavy Swings — 5 Min EMOM",
+          "Bird Dog — 3×15",
+          "Glute Bridge March — 3×20",
         ],
       },
     ],
