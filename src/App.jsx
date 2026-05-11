@@ -127,6 +127,7 @@ function keyFor(week, workout, block, exercise, set, type) {
 }
 
 export default function App() {
+  const [activePlan, setActivePlan] = useState("male");
   const [week, setWeek] = useState(1);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
   const [selectedExercise, setSelectedExercise] = useState(null);
@@ -154,6 +155,32 @@ export default function App() {
 
   if (activeWorkout) {
     return (
+      <div className="flex gap-2 mb-6">
+  <button
+    onClick={() => setActivePlan("male")}
+    className={`px-4 py-2 rounded-xl font-bold ${
+      activePlan === "male"
+        ? "bg-black text-white"
+        : "bg-gray-200"
+    }`}
+  >
+    Männerplan
+  </button>
+
+  <button
+    onClick={() => setActivePlan("female")}
+    className={`px-4 py-2 rounded-xl font-bold ${
+      activePlan === "female"
+        ? "bg-pink-500 text-white"
+        : "bg-gray-200"
+    }`}
+  >
+    Frauenplan
+  </button>
+</div>
+      {activePlan === "female" ? (
+  <FemalePlan />
+) : (
       <main className="min-h-screen bg-slate-100 p-4 text-slate-950">
         <div className="mx-auto max-w-md">
           <button
@@ -363,5 +390,6 @@ export default function App() {
         </section>
       </div>
     </main>
+    )}
   );
 }
