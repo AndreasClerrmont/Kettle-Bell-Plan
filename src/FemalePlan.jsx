@@ -1,5 +1,33 @@
 import React, { useState } from "react";
 
+import gobletSquat from "./images/goblet-squat.jpg";
+import oneArmRow from "./images/one-arm-row.jpg";
+import bulgarianSplitSquat from "./images/bulgarian-split-squat.jpg";
+import deadBug from "./images/dead-bug.jpg";
+import hipThrust from "./images/hip-thrust.jpg";
+import suitcaseCarry from "./images/suitcase-carry.jpg";
+
+import kbSwings from "./images/kb-swings.jpg";
+import floorPress from "./images/floor-press.jpg";
+import reverseLunge from "./images/reverse-lunge.jpg";
+import plankShoulderTap from "./images/plank-shoulder-tap.jpg";
+import tricepExtension from "./images/tricep-extension.jpg";
+import hammerCurl from "./images/hammer-curl.jpg";
+
+import romanianDeadlift from "./images/romanian-deadlift.jpg";
+import halfKneelingPress from "./images/half-kneeling-press.jpg";
+import stepUps from "./images/step-ups.jpg";
+import birdDog from "./images/bird-dog.jpg";
+import russianTwist from "./images/russian-twist.jpg";
+import frogPumps from "./images/frog-pumps.jpg";
+
+import cleanSquatPress from "./images/clean-squat-press.jpg";
+import singleLegDeadlift from "./images/single-leg-deadlift.jpg";
+import walkingLunges from "./images/walking-lunges.jpg";
+import gluteBridgeMarch from "./images/glute-bridge-march.jpg";
+import heavySwings from "./images/heavy-swings.jpg";
+import mountainClimbers from "./images/mountain-climbers.jpg";
+
 const workouts = [
   {
     day: "Montag",
@@ -15,7 +43,7 @@ const workouts = [
             sets: 4,
             reps: "10–12",
             weight: "16 kg",
-            image: "🍑",
+            image: gobletSquat,
             note: "Langsam runter, explosiv hoch. Po oben aktiv anspannen.",
           },
           {
@@ -23,7 +51,7 @@ const workouts = [
             sets: 4,
             reps: "10 je Seite",
             weight: "16 kg",
-            image: "💪",
+            image: oneArmRow,
             note: "Rücken stabil, Ellbogen eng am Körper ziehen.",
           },
         ],
@@ -36,7 +64,7 @@ const workouts = [
             sets: 3,
             reps: "10 je Bein",
             weight: "8–16 kg",
-            image: "🦵",
+            image: bulgarianSplitSquat,
             note: "Vorderes Bein arbeitet, Oberkörper leicht nach vorne.",
           },
           {
@@ -107,7 +135,7 @@ const workouts = [
             sets: 4,
             reps: "10 je Bein",
             weight: "8–16 kg",
-            image: "🦵",
+            image: bulgarianSplitSquat,
             note: "Ruhig zurücksteigen, vorderes Bein kontrolliert drücken.",
           },
           {
@@ -128,7 +156,7 @@ const workouts = [
             sets: 3,
             reps: "15",
             weight: "8 kg",
-            image: "💪",
+            image: oneArmRow,
             note: "Ellbogen eng, volle Streckung oben.",
           },
           {
@@ -157,7 +185,7 @@ const workouts = [
             sets: 4,
             reps: "12–15",
             weight: "16 kg",
-            image: "🍑",
+            image: gobletSquat,
             note: "Hüfte nach hinten, Spannung in Hamstrings und Po.",
           },
           {
@@ -207,7 +235,7 @@ const workouts = [
             sets: 3,
             reps: "40",
             weight: "Bodyweight oder 8 kg",
-            image: "🍑",
+            image: gobletSquat,
             note: "Kurze, harte Po-Kontraktion oben.",
           },
         ],
@@ -236,7 +264,7 @@ const workouts = [
             sets: 4,
             reps: "10 je Bein",
             weight: "8–16 kg",
-            image: "🦵",
+            image: bulgarianSplitSquat,
             note: "Hüfte gerade, Balance kontrollieren.",
           },
         ],
@@ -381,7 +409,11 @@ export default function FemalePlan() {
                         >
                           <div className="mb-3 flex items-start gap-3">
                             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
-                              {exercise.image}
+                              <img
+                              src={exercise.image}
+                              alt={exercise.name}
+                              className="h-16 w-16 rounded-2xl object-cover"
+                            />
                             </div>
                             <div className="min-w-0 flex-1">
                               <h3 className="text-xl font-black leading-tight">{exercise.name}</h3>
