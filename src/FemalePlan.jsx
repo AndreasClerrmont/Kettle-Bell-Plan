@@ -3,141 +3,306 @@ import React, { useState } from "react";
 const workouts = [
   {
     day: "Montag",
-    title: "Glute Strength",
-    focus: "Po • Core • Beckenboden",
+    title: "Full Body Glute Strength",
+    focus: "Po • Beine • Core • Beckenboden",
     duration: "35–40 Min",
     blocks: [
       {
-        name: "Glute Power",
+        name: "Supersatz A — Strength",
         exercises: [
-          "Heavy KB Hip Thrust — 4×15",
-          "Bulgarian Split Squat — 4×10 je Bein",
+          {
+            name: "KB Goblet Squat",
+            sets: 4,
+            reps: "10–12",
+            weight: "16 kg",
+            image: "🍑",
+            note: "Langsam runter, explosiv hoch. Po oben aktiv anspannen.",
+          },
+          {
+            name: "KB One Arm Row",
+            sets: 4,
+            reps: "10 je Seite",
+            weight: "16 kg",
+            image: "💪",
+            note: "Rücken stabil, Ellbogen eng am Körper ziehen.",
+          },
         ],
       },
       {
-        name: "Waist & Stability",
+        name: "Supersatz B — Glute Focus",
         exercises: [
-          "Dead Bug — 3×12",
-          "Suitcase Carry — 3×40 Sek je Seite",
+          {
+            name: "Bulgarian Split Squat",
+            sets: 3,
+            reps: "10 je Bein",
+            weight: "8–16 kg",
+            image: "🦵",
+            note: "Vorderes Bein arbeitet, Oberkörper leicht nach vorne.",
+          },
+          {
+            name: "Dead Bug mit Beckenboden-Spannung",
+            sets: 3,
+            reps: "12 je Seite",
+            weight: "Bodyweight",
+            image: "🧘‍♀️",
+            note: "Ausatmen, Bauch flach halten, Beckenboden sanft aktivieren.",
+          },
         ],
       },
       {
-        name: "Glute Burn",
+        name: "Supersatz C — Booty Burn",
         exercises: [
-          "Frog Pumps — 3×30",
-          "Glute Bridge Hold — 3×45 Sek",
+          {
+            name: "KB Hip Thrust",
+            sets: 4,
+            reps: "15",
+            weight: "16 kg",
+            image: "🔥",
+            note: "Oben 1–2 Sekunden halten. Kein Hohlkreuz.",
+          },
+          {
+            name: "Suitcase Carry",
+            sets: 3,
+            reps: "40 Sek je Seite",
+            weight: "16 kg",
+            image: "🚶‍♀️",
+            note: "Aufrecht gehen, Taille stabil, nicht zur Seite kippen.",
+          },
         ],
       },
     ],
   },
-
   {
     day: "Dienstag",
-    title: "Leg Sculpt",
-    focus: "Beine • Po • Conditioning",
+    title: "Athletic Full Body",
+    focus: "Po • Taille • Kondition • Arme",
     duration: "35–40 Min",
     blocks: [
       {
-        name: "Leg Builder",
+        name: "Supersatz A — Power",
         exercises: [
-          "Goblet Squat Tempo — 4×12",
-          "Walking Lunges — 4×12 je Bein",
+          {
+            name: "KB Swings",
+            sets: 5,
+            reps: "20",
+            weight: "16 kg",
+            image: "⚡",
+            note: "Hüfte schnappen lassen, nicht aus den Armen heben.",
+          },
+          {
+            name: "Push-Up oder KB Floor Press",
+            sets: 4,
+            reps: "10–12",
+            weight: "8 kg oder Bodyweight",
+            image: "🤍",
+            note: "Nur moderat für Oberkörper, sauber und kontrolliert.",
+          },
         ],
       },
       {
-        name: "Hamstrings + Glutes",
+        name: "Supersatz B — Legs & Core",
         exercises: [
-          "Romanian Deadlift — 4×12",
-          "Single Leg Deadlift — 3×10 je Bein",
+          {
+            name: "Front Rack Reverse Lunge",
+            sets: 4,
+            reps: "10 je Bein",
+            weight: "8–16 kg",
+            image: "🦵",
+            note: "Ruhig zurücksteigen, vorderes Bein kontrolliert drücken.",
+          },
+          {
+            name: "Plank Shoulder Tap",
+            sets: 4,
+            reps: "20",
+            weight: "Bodyweight",
+            image: "🧱",
+            note: "Hüfte ruhig halten, Bauch fest.",
+          },
         ],
       },
       {
-        name: "Conditioning",
+        name: "Supersatz C — Winkearme",
         exercises: [
-          "Heavy Swings — 5×20",
-          "Mountain Climbers — 5×30 Sek",
+          {
+            name: "Overhead Tricep Extension",
+            sets: 3,
+            reps: "15",
+            weight: "8 kg",
+            image: "💪",
+            note: "Ellbogen eng, volle Streckung oben.",
+          },
+          {
+            name: "KB Hammer Curl",
+            sets: 3,
+            reps: "15",
+            weight: "8 kg",
+            image: "✨",
+            note: "Ohne Schwung, langsam ablassen.",
+          },
         ],
       },
     ],
   },
-
   {
     day: "Donnerstag",
-    title: "Booty Pump",
-    focus: "Runder Po • Taille",
+    title: "Booty Shape & Waist",
+    focus: "Runder Po • Bauch • Haltung",
     duration: "35–40 Min",
     blocks: [
       {
-        name: "Upper Glutes",
+        name: "Supersatz A — Shape",
         exercises: [
-          "Step-Ups — 4×12 je Bein",
-          "Curtsy Lunge — 4×12 je Bein",
+          {
+            name: "KB Romanian Deadlift",
+            sets: 4,
+            reps: "12–15",
+            weight: "16 kg",
+            image: "🍑",
+            note: "Hüfte nach hinten, Spannung in Hamstrings und Po.",
+          },
+          {
+            name: "Half-Kneeling Press",
+            sets: 3,
+            reps: "10 je Seite",
+            weight: "8 kg",
+            image: "🏋️‍♀️",
+            note: "Bauch fest, Rippen unten, sauber über Kopf drücken.",
+          },
         ],
       },
       {
-        name: "Waist Line",
+        name: "Supersatz B — Upper Glutes",
         exercises: [
-          "Russian Twist — 4×20",
-          "Plank Shoulder Tap — 4×20",
+          {
+            name: "Step-Ups",
+            sets: 4,
+            reps: "12 je Bein",
+            weight: "8–16 kg",
+            image: "⬆️",
+            note: "Über die Ferse drücken, oben Po anspannen.",
+          },
+          {
+            name: "Bird Dog mit Pause",
+            sets: 3,
+            reps: "12 je Seite",
+            weight: "Bodyweight",
+            image: "🧘‍♀️",
+            note: "2 Sekunden halten, Becken gerade lassen.",
+          },
         ],
       },
       {
-        name: "Glute Finisher",
+        name: "Supersatz C — Core & Burn",
         exercises: [
-          "Swing Burnout — 100 Reps",
-          "Frog Pumps — 3×40",
+          {
+            name: "Russian Twist",
+            sets: 4,
+            reps: "20",
+            weight: "8 kg",
+            image: "🔥",
+            note: "Kontrolliert drehen, Bauchspannung halten.",
+          },
+          {
+            name: "Frog Pumps",
+            sets: 3,
+            reps: "40",
+            weight: "Bodyweight oder 8 kg",
+            image: "🍑",
+            note: "Kurze, harte Po-Kontraktion oben.",
+          },
         ],
       },
     ],
   },
-
   {
     day: "Freitag",
-    title: "Athletic Shape",
-    focus: "Straff • Athletisch • Arme",
+    title: "Strength Endurance",
+    focus: "Ganzkörper • Po hoch • Bauch fest",
     duration: "35–40 Min",
     blocks: [
       {
-        name: "Athletic Block",
+        name: "Supersatz A — Complex",
         exercises: [
-          "Clean & Press — 4×10",
-          "Reverse Lunge — 4×10 je Bein",
+          {
+            name: "KB Clean + Squat + Press",
+            sets: 4,
+            reps: "8 je Seite",
+            weight: "8 kg",
+            image: "⚡",
+            note: "Flüssiger Complex, nicht hetzen.",
+          },
+          {
+            name: "Single Leg Deadlift",
+            sets: 4,
+            reps: "10 je Bein",
+            weight: "8–16 kg",
+            image: "🦵",
+            note: "Hüfte gerade, Balance kontrollieren.",
+          },
         ],
       },
       {
-        name: "Tight Arms",
+        name: "Supersatz B — Glute Stability",
         exercises: [
-          "Overhead Tricep Extension — 3×15",
-          "Hammer Curl — 3×15",
+          {
+            name: "Walking Lunges",
+            sets: 3,
+            reps: "12 je Bein",
+            weight: "8–16 kg",
+            image: "🚶‍♀️",
+            note: "Große Schritte, Po und Oberschenkel aktiv.",
+          },
+          {
+            name: "Glute Bridge March",
+            sets: 3,
+            reps: "20",
+            weight: "Bodyweight",
+            image: "🧘‍♀️",
+            note: "Becken stabil halten, Beckenboden sanft aktiv.",
+          },
         ],
       },
       {
-        name: "Core + Pelvic Floor",
+        name: "Supersatz C — Finisher",
         exercises: [
-          "Bird Dog — 3×15",
-          "Glute Bridge March — 3×20",
+          {
+            name: "Heavy Swings",
+            sets: 5,
+            reps: "20",
+            weight: "16 kg",
+            image: "🔥",
+            note: "Explosiv, Po hart anspannen.",
+          },
+          {
+            name: "Mountain Climbers",
+            sets: 5,
+            reps: "30 Sek",
+            weight: "Bodyweight",
+            image: "💦",
+            note: "Bauch fest, Tempo sauber halten.",
+          },
         ],
       },
     ],
   },
 ];
 
-function keyFor(week, workout, block, exercise, set, type) {
-  return `kb-${week}-${workout}-${block}-${exercise}-${set}-${type}`;
+function makeKey(week, dayIndex, blockIndex, exerciseIndex, setIndex, field) {
+  return `female-kb-${week}-${dayIndex}-${blockIndex}-${exerciseIndex}-${setIndex}-${field}`;
 }
 
-export default function App() {
+export default function FemalePlan() {
   const [week, setWeek] = useState(1);
-  const [selectedWorkout, setSelectedWorkout] = useState(null);
-  const [selectedExercise, setSelectedExercise] = useState(null);
-  const [, refresh] = useState(0);
+  const [screen, setScreen] = useState("home");
+  const [activeDay, setActiveDay] = useState(null);
+  const [openExercise, setOpenExercise] = useState(null);
+  const [, rerender] = useState(0);
 
-  const activeWorkout =
-    selectedWorkout !== null ? workouts[selectedWorkout] : null;
+  const workout = activeDay !== null ? workouts[activeDay] : null;
 
   function save(key, value) {
     localStorage.setItem(key, value);
-    refresh((v) => v + 1);
+    rerender((v) => v + 1);
   }
 
   function load(key) {
@@ -145,137 +310,147 @@ export default function App() {
   }
 
   function clearLogs() {
-    if (!confirm("Alle Einträge löschen?")) return;
+    if (!window.confirm("Alle Einträge für den Frauenplan löschen?")) return;
     Object.keys(localStorage)
-      .filter((k) => k.startsWith("kb-"))
-      .forEach((k) => localStorage.removeItem(k));
-    refresh((v) => v + 1);
+      .filter((key) => key.startsWith("female-kb-"))
+      .forEach((key) => localStorage.removeItem(key));
+    rerender((v) => v + 1);
   }
 
-  if (activeWorkout) {
+  function openWorkout(index) {
+    setActiveDay(index);
+    setOpenExercise(null);
+    setScreen("workout");
+  }
+
+  if (screen === "workout" && workout) {
     return (
-      <main className="min-h-screen bg-slate-100 p-4 text-slate-950">
+      <main className="min-h-screen bg-[#f3f0ea] px-4 py-5 text-stone-950">
         <div className="mx-auto max-w-md">
           <button
-            onClick={() => {
-              setSelectedWorkout(null);
-              setSelectedExercise(null);
-            }}
-            className="mb-4 rounded-2xl bg-white px-4 py-3 font-black shadow"
+            onClick={() => setScreen("home")}
+            className="mb-4 rounded-full bg-white px-5 py-3 text-sm font-black shadow-sm"
           >
             ← Zurück
           </button>
 
-          <section className="mb-4 rounded-3xl bg-slate-950 p-6 text-white shadow-xl">
-            <p className="text-sm font-bold text-slate-400">
-              {activeWorkout.day} • {activeWorkout.duration}
+          <section className="mb-5 overflow-hidden rounded-[2rem] bg-gradient-to-br from-stone-950 to-stone-800 p-6 text-white shadow-xl">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-rose-200">
+              {workout.day} • {workout.duration}
             </p>
-            <h1 className="mt-2 text-3xl font-black">{activeWorkout.title}</h1>
-            <p className="mt-2 text-slate-300">{activeWorkout.focus}</p>
+            <h1 className="mt-3 text-4xl font-black leading-none">{workout.title}</h1>
+            <p className="mt-3 text-base text-stone-300">{workout.focus}</p>
           </section>
 
-          <section className="mb-4 rounded-3xl bg-white p-4 shadow">
-            <div className="flex gap-2 overflow-x-auto">
-              {[1, 2, 3, 4, 5].map((w) => (
+          <section className="sticky top-0 z-20 mb-5 rounded-[1.75rem] bg-white/95 p-3 shadow-lg backdrop-blur">
+            <div className="flex gap-2 overflow-x-auto pb-1">
+              {[1, 2, 3, 4, 5].map((item) => (
                 <button
-                  key={w}
-                  onClick={() => setWeek(w)}
-                  className={`rounded-2xl px-4 py-3 font-black ${
-                    week === w
-                      ? "bg-slate-950 text-white"
-                      : "bg-slate-100 text-slate-700"
+                  key={item}
+                  onClick={() => setWeek(item)}
+                  className={`shrink-0 rounded-2xl px-5 py-3 text-base font-black ${
+                    week === item ? "bg-rose-500 text-white" : "bg-stone-100 text-stone-700"
                   }`}
                 >
-                  W{w}
+                  W{item}
                 </button>
               ))}
             </div>
           </section>
 
-          <section className="space-y-4">
-            {activeWorkout.blocks.map((block, blockIndex) => (
-              <div key={block.name} className="rounded-3xl bg-white p-4 shadow">
-                <h2 className="mb-3 text-xl font-black">{block.name}</h2>
+          <section className="space-y-5">
+            {workout.blocks.map((block, blockIndex) => (
+              <div key={block.name} className="rounded-[2rem] bg-white p-5 shadow-lg">
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <h2 className="text-2xl font-black leading-tight">{block.name}</h2>
+                  <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-black text-rose-700">
+                    Supersatz
+                  </span>
+                </div>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {block.exercises.map((exercise, exerciseIndex) => {
-                    const isOpen =
-                      selectedExercise === `${blockIndex}-${exerciseIndex}`;
+                    const exerciseId = `${blockIndex}-${exerciseIndex}`;
+                    const isOpen = openExercise === exerciseId;
 
                     return (
-                      <div
-                        key={exercise}
-                        className="rounded-3xl bg-slate-50 p-4"
-                      >
+                      <article key={exercise.name} className="rounded-[1.75rem] bg-stone-50 p-4 shadow-sm">
                         <button
-                          onClick={() =>
-                            setSelectedExercise(
-                              isOpen ? null : `${blockIndex}-${exerciseIndex}`
-                            )
-                          }
+                          onClick={() => setOpenExercise(isOpen ? null : exerciseId)}
                           className="w-full text-left"
                         >
-                          <h3 className="text-lg font-black">{exercise}</h3>
-                          <p className="mt-1 text-sm text-slate-500">
-                            Tippen zum Eintragen
+                          <div className="mb-3 flex items-start gap-3">
+                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
+                              {exercise.image}
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <h3 className="text-xl font-black leading-tight">{exercise.name}</h3>
+                              <p className="mt-1 text-sm font-bold text-stone-500">
+                                {exercise.sets}× {exercise.reps} • {exercise.weight}
+                              </p>
+                            </div>
+                          </div>
+                          <p className="rounded-2xl bg-white p-3 text-sm text-stone-600 shadow-sm">
+                            {exercise.note}
                           </p>
+                          <div className="mt-3 rounded-2xl bg-stone-900 px-4 py-3 text-center text-sm font-black text-white">
+                            {isOpen ? "Sätze schließen" : "Sätze eintragen"}
+                          </div>
                         </button>
 
                         {isOpen && (
                           <div className="mt-4 space-y-3">
-                            {[1, 2, 3, 4].map((set) => {
-                              const weightKey = keyFor(
-                                week,
-                                selectedWorkout,
-                                blockIndex,
-                                exerciseIndex,
-                                set,
-                                "weight"
-                              );
-
-                              const repsKey = keyFor(
-                                week,
-                                selectedWorkout,
-                                blockIndex,
-                                exerciseIndex,
-                                set,
-                                "reps"
-                              );
+                            {Array.from({ length: exercise.sets }).map((_, setIndex) => {
+                              const weightKey = makeKey(week, activeDay, blockIndex, exerciseIndex, setIndex, "weight");
+                              const repsKey = makeKey(week, activeDay, blockIndex, exerciseIndex, setIndex, "reps");
+                              const doneKey = makeKey(week, activeDay, blockIndex, exerciseIndex, setIndex, "done");
+                              const done = load(doneKey) === "yes";
 
                               return (
                                 <div
-                                  key={set}
-                                  className="rounded-2xl bg-white p-3 shadow-sm"
+                                  key={setIndex}
+                                  className={`rounded-2xl p-3 shadow-sm ${done ? "bg-emerald-50" : "bg-white"}`}
                                 >
-                                  <div className="mb-2 font-black">
-                                    Satz {set}
+                                  <div className="mb-2 flex items-center justify-between">
+                                    <span className="text-base font-black">Satz {setIndex + 1}</span>
+                                    <button
+                                      onClick={() => save(doneKey, done ? "" : "yes")}
+                                      className={`rounded-xl px-3 py-2 text-xs font-black ${
+                                        done ? "bg-emerald-600 text-white" : "bg-stone-900 text-white"
+                                      }`}
+                                    >
+                                      {done ? "✓ Fertig" : "Check"}
+                                    </button>
                                   </div>
 
                                   <div className="grid grid-cols-2 gap-3">
-                                    <input
-                                      value={load(weightKey)}
-                                      onChange={(e) =>
-                                        save(weightKey, e.target.value)
-                                      }
-                                      placeholder="kg"
-                                      className="h-12 rounded-2xl border px-4 text-lg font-bold"
-                                    />
-
-                                    <input
-                                      value={load(repsKey)}
-                                      onChange={(e) =>
-                                        save(repsKey, e.target.value)
-                                      }
-                                      placeholder="Reps"
-                                      className="h-12 rounded-2xl border px-4 text-lg font-bold"
-                                    />
+                                    <label className="grid gap-1 text-xs font-black uppercase tracking-wide text-stone-500">
+                                      Gewicht
+                                      <input
+                                        value={load(weightKey)}
+                                        onChange={(e) => save(weightKey, e.target.value)}
+                                        placeholder="kg"
+                                        inputMode="decimal"
+                                        className="h-12 rounded-2xl border border-stone-200 bg-white px-4 text-lg font-black outline-none focus:ring-2 focus:ring-rose-400"
+                                      />
+                                    </label>
+                                    <label className="grid gap-1 text-xs font-black uppercase tracking-wide text-stone-500">
+                                      Reps
+                                      <input
+                                        value={load(repsKey)}
+                                        onChange={(e) => save(repsKey, e.target.value)}
+                                        placeholder={exercise.reps}
+                                        inputMode="numeric"
+                                        className="h-12 rounded-2xl border border-stone-200 bg-white px-4 text-lg font-black outline-none focus:ring-2 focus:ring-rose-400"
+                                      />
+                                    </label>
                                   </div>
                                 </div>
                               );
                             })}
                           </div>
                         )}
-                      </div>
+                      </article>
                     );
                   })}
                 </div>
@@ -288,49 +463,41 @@ export default function App() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-100 p-4 text-slate-950">
+    <main className="min-h-screen bg-[#f3f0ea] px-4 py-5 text-stone-950">
       <div className="mx-auto max-w-md">
-        <header className="mb-5 rounded-3xl bg-slate-950 p-6 text-white shadow-xl">
-          <p className="text-xs font-black uppercase tracking-widest text-slate-400">
-            Elite Kettlebell
+        <header className="mb-5 rounded-[2rem] bg-gradient-to-br from-stone-950 to-stone-800 p-6 text-white shadow-xl">
+          <p className="text-xs font-black uppercase tracking-[0.25em] text-rose-200">
+            Kettlebell Shape Plan
           </p>
-          <h1 className="mt-2 text-4xl font-black leading-tight">
-            Trainingsplan
-          </h1>
-          <p className="mt-3 text-slate-300">
-            4 Tage • Supersätze • Muskelaufbau
+          <h1 className="mt-3 text-4xl font-black leading-none">Booty & Core</h1>
+          <p className="mt-3 text-base text-stone-300">
+            4 Tage • Ganzkörper • Po-Fokus • Bauch • Beckenboden
           </p>
         </header>
 
-        <section className="mb-5 rounded-3xl bg-white p-4 shadow">
-          <div className="flex items-center justify-between">
+        <section className="mb-5 rounded-[2rem] bg-white p-5 shadow-lg">
+          <div className="mb-4 flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-bold text-slate-500">
-                Aktuelle Woche
-              </p>
-              <h2 className="text-2xl font-black">Woche {week}</h2>
+              <p className="text-sm font-black uppercase tracking-wide text-stone-400">Aktuelle Woche</p>
+              <h2 className="text-3xl font-black">Woche {week}</h2>
             </div>
-
             <button
               onClick={clearLogs}
-              className="rounded-2xl bg-slate-100 px-4 py-3 font-black"
+              className="rounded-2xl bg-stone-100 px-4 py-3 text-sm font-black text-stone-700"
             >
               Log löschen
             </button>
           </div>
-
-          <div className="mt-4 flex gap-2 overflow-x-auto">
-            {[1, 2, 3, 4, 5].map((w) => (
+          <div className="flex gap-2 overflow-x-auto pb-1">
+            {[1, 2, 3, 4, 5].map((item) => (
               <button
-                key={w}
-                onClick={() => setWeek(w)}
-                className={`rounded-2xl px-5 py-3 font-black ${
-                  week === w
-                    ? "bg-slate-950 text-white"
-                    : "bg-slate-100 text-slate-700"
+                key={item}
+                onClick={() => setWeek(item)}
+                className={`shrink-0 rounded-2xl px-5 py-3 text-base font-black ${
+                  week === item ? "bg-rose-500 text-white" : "bg-stone-100 text-stone-700"
                 }`}
               >
-                {w}
+                {item}
               </button>
             ))}
           </div>
@@ -340,26 +507,36 @@ export default function App() {
           {workouts.map((workout, index) => (
             <button
               key={workout.day}
-              onClick={() => setSelectedWorkout(index)}
-              className="w-full rounded-3xl bg-white p-5 text-left shadow-lg"
+              onClick={() => openWorkout(index)}
+              className="w-full overflow-hidden rounded-[2rem] bg-white text-left shadow-lg"
             >
-              <div className="mb-3 flex items-center justify-between">
-                <span className="rounded-full bg-slate-950 px-3 py-1 text-sm font-black text-white">
-                  {workout.day}
-                </span>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-black text-slate-700">
-                  {workout.duration}
-                </span>
-              </div>
-
-              <h2 className="text-2xl font-black">{workout.title}</h2>
-              <p className="mt-1 text-slate-600">{workout.focus}</p>
-
-              <div className="mt-4 rounded-2xl bg-slate-100 px-4 py-3 text-center font-black">
-                Training öffnen →
+              <div className="p-5">
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="rounded-full bg-stone-950 px-4 py-2 text-sm font-black text-white">
+                    {workout.day}
+                  </span>
+                  <span className="rounded-full bg-rose-100 px-4 py-2 text-sm font-black text-rose-700">
+                    {workout.duration}
+                  </span>
+                </div>
+                <h2 className="text-2xl font-black leading-tight">{workout.title}</h2>
+                <p className="mt-2 text-base text-stone-600">{workout.focus}</p>
+                <div className="mt-5 rounded-2xl bg-stone-950 px-4 py-4 text-center text-base font-black text-white">
+                  Training öffnen →
+                </div>
               </div>
             </button>
           ))}
+        </section>
+
+        <section className="mt-5 rounded-[2rem] bg-white p-5 shadow-lg">
+          <h2 className="text-2xl font-black">Progression</h2>
+          <ul className="mt-3 space-y-2 text-base text-stone-700">
+            <li>✅ Wenn alle Sätze sauber: mehr Wiederholungen oder schwerere KB.</li>
+            <li>✅ Po-Übungen oben bewusst 1–2 Sekunden halten.</li>
+            <li>✅ Bauch flach halten, Beckenboden sanft aktivieren.</li>
+            <li>✅ Qualität vor Tempo — besonders bei einbeinigen Übungen.</li>
+          </ul>
         </section>
       </div>
     </main>
