@@ -72,7 +72,7 @@ const workouts = [
             sets: 3,
             reps: "12 je Seite",
             weight: "Bodyweight",
-            image: "🧘‍♀️",
+            image: deadBug,
             note: "Ausatmen, Bauch flach halten, Beckenboden sanft aktivieren.",
           },
         ],
@@ -85,7 +85,7 @@ const workouts = [
             sets: 4,
             reps: "15",
             weight: "16 kg",
-            image: "🔥",
+            image: hipThrust,
             note: "Oben 1–2 Sekunden halten. Kein Hohlkreuz.",
           },
           {
@@ -93,7 +93,7 @@ const workouts = [
             sets: 3,
             reps: "40 Sek je Seite",
             weight: "16 kg",
-            image: "🚶‍♀️",
+            image: suitcaseCarry,
             note: "Aufrecht gehen, Taille stabil, nicht zur Seite kippen.",
           },
         ],
@@ -114,7 +114,7 @@ const workouts = [
             sets: 5,
             reps: "20",
             weight: "16 kg",
-            image: "⚡",
+            image: kbSwings,
             note: "Hüfte schnappen lassen, nicht aus den Armen heben.",
           },
           {
@@ -122,7 +122,7 @@ const workouts = [
             sets: 4,
             reps: "10–12",
             weight: "8 kg oder Bodyweight",
-            image: "🤍",
+            image: floorPress,
             note: "Nur moderat für Oberkörper, sauber und kontrolliert.",
           },
         ],
@@ -135,7 +135,7 @@ const workouts = [
             sets: 4,
             reps: "10 je Bein",
             weight: "8–16 kg",
-            image: bulgarianSplitSquat,
+            image: reverseLunge,
             note: "Ruhig zurücksteigen, vorderes Bein kontrolliert drücken.",
           },
           {
@@ -143,7 +143,7 @@ const workouts = [
             sets: 4,
             reps: "20",
             weight: "Bodyweight",
-            image: "🧱",
+            image: plankShoulderTap,
             note: "Hüfte ruhig halten, Bauch fest.",
           },
         ],
@@ -156,7 +156,7 @@ const workouts = [
             sets: 3,
             reps: "15",
             weight: "8 kg",
-            image: oneArmRow,
+            image: tricepExtension,
             note: "Ellbogen eng, volle Streckung oben.",
           },
           {
@@ -164,7 +164,7 @@ const workouts = [
             sets: 3,
             reps: "15",
             weight: "8 kg",
-            image: "✨",
+            image: hammerCurl,
             note: "Ohne Schwung, langsam ablassen.",
           },
         ],
@@ -185,7 +185,7 @@ const workouts = [
             sets: 4,
             reps: "12–15",
             weight: "16 kg",
-            image: gobletSquat,
+            image: romanianDeadlift,
             note: "Hüfte nach hinten, Spannung in Hamstrings und Po.",
           },
           {
@@ -193,7 +193,7 @@ const workouts = [
             sets: 3,
             reps: "10 je Seite",
             weight: "8 kg",
-            image: "🏋️‍♀️",
+            image: halfKneelingPress,
             note: "Bauch fest, Rippen unten, sauber über Kopf drücken.",
           },
         ],
@@ -206,7 +206,7 @@ const workouts = [
             sets: 4,
             reps: "12 je Bein",
             weight: "8–16 kg",
-            image: "⬆️",
+            image: stepUps,
             note: "Über die Ferse drücken, oben Po anspannen.",
           },
           {
@@ -214,7 +214,7 @@ const workouts = [
             sets: 3,
             reps: "12 je Seite",
             weight: "Bodyweight",
-            image: "🧘‍♀️",
+            image: birdDog,
             note: "2 Sekunden halten, Becken gerade lassen.",
           },
         ],
@@ -227,7 +227,7 @@ const workouts = [
             sets: 4,
             reps: "20",
             weight: "8 kg",
-            image: "🔥",
+            image: russianTwist,
             note: "Kontrolliert drehen, Bauchspannung halten.",
           },
           {
@@ -235,7 +235,7 @@ const workouts = [
             sets: 3,
             reps: "40",
             weight: "Bodyweight oder 8 kg",
-            image: gobletSquat,
+            image: frogPumps,
             note: "Kurze, harte Po-Kontraktion oben.",
           },
         ],
@@ -256,7 +256,7 @@ const workouts = [
             sets: 4,
             reps: "8 je Seite",
             weight: "8 kg",
-            image: "⚡",
+            image: cleanSquatPress,
             note: "Flüssiger Complex, nicht hetzen.",
           },
           {
@@ -264,7 +264,7 @@ const workouts = [
             sets: 4,
             reps: "10 je Bein",
             weight: "8–16 kg",
-            image: bulgarianSplitSquat,
+            image: singleLegDeadlift,
             note: "Hüfte gerade, Balance kontrollieren.",
           },
         ],
@@ -277,7 +277,7 @@ const workouts = [
             sets: 3,
             reps: "12 je Bein",
             weight: "8–16 kg",
-            image: "🚶‍♀️",
+            image: walkingLunges,
             note: "Große Schritte, Po und Oberschenkel aktiv.",
           },
           {
@@ -285,7 +285,7 @@ const workouts = [
             sets: 3,
             reps: "20",
             weight: "Bodyweight",
-            image: "🧘‍♀️",
+            image: gluteBridgeMarch,
             note: "Becken stabil halten, Beckenboden sanft aktiv.",
           },
         ],
@@ -298,7 +298,7 @@ const workouts = [
             sets: 5,
             reps: "20",
             weight: "16 kg",
-            image: "🔥",
+            image: heavySwings,
             note: "Explosiv, Po hart anspannen.",
           },
           {
@@ -306,7 +306,7 @@ const workouts = [
             sets: 5,
             reps: "30 Sek",
             weight: "Bodyweight",
-            image: "💦",
+            image: mountainClimbers,
             note: "Bauch fest, Tempo sauber halten.",
           },
         ],
@@ -349,6 +349,16 @@ export default function FemalePlan() {
     setActiveDay(index);
     setOpenExercise(null);
     setScreen("workout");
+  }
+
+  function ExerciseImage({ exercise }) {
+    return (
+      <img
+        src={exercise.image}
+        alt={exercise.name}
+        className="h-16 w-16 rounded-2xl object-cover shadow-sm"
+      />
+    );
   }
 
   if (screen === "workout" && workout) {
@@ -408,12 +418,8 @@ export default function FemalePlan() {
                           className="w-full text-left"
                         >
                           <div className="mb-3 flex items-start gap-3">
-                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
-                              <img
-                              src={exercise.image}
-                              alt={exercise.name}
-                              className="h-16 w-16 rounded-2xl object-cover"
-                            />
+                            <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-sm">
+                              <ExerciseImage exercise={exercise} />
                             </div>
                             <div className="min-w-0 flex-1">
                               <h3 className="text-xl font-black leading-tight">{exercise.name}</h3>
