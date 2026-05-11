@@ -1,32 +1,32 @@
 import React, { useState } from "react";
 
-import gobletSquat from "./images/goblet-squat.jpg";
-import oneArmRow from "./images/one-arm-row.jpg";
-import bulgarianSplitSquat from "./images/bulgarian-split-squat.jpg";
-import deadBug from "./images/dead-bug.jpg";
-import hipThrust from "./images/hip-thrust.jpg";
-import suitcaseCarry from "./images/suitcase-carry.jpg";
+import gobletSquat from "./goblet-squat.jpg";
+import oneArmRow from "./one-arm-row.jpg";
+import bulgarianSplitSquat from "./bulgarian-split-squat.jpg";
+import deadBug from "./dead-bug.jpg";
+import hipThrust from "./hip-thrust.jpg";
+import suitcaseCarry from "./suitcase-carry.jpg";
 
-import kbSwings from "./images/kb-swings.jpg";
-import floorPress from "./images/floor-press.jpg";
-import reverseLunge from "./images/reverse-lunge.jpg";
-import plankShoulderTap from "./images/plank-shoulder-tap.jpg";
-import tricepExtension from "./images/tricep-extension.jpg";
-import hammerCurl from "./images/hammer-curl.jpg";
+import kbSwings from "./kb-swings.jpg";
+import floorPress from "./floor-press.jpg";
+import reverseLunge from "./reverse-lunge.jpg";
+import plankShoulderTap from "./plank-shoulder-tap.jpg";
+import tricepExtension from "./tricep-extension.jpg";
+import hammerCurl from "./hammer-curl.jpg";
 
-import romanianDeadlift from "./images/romanian-deadlift.jpg";
-import halfKneelingPress from "./images/half-kneeling-press.jpg";
-import stepUps from "./images/step-ups.jpg";
-import birdDog from "./images/bird-dog.jpg";
-import russianTwist from "./images/russian-twist.jpg";
-import frogPumps from "./images/frog-pumps.jpg";
+import romanianDeadlift from "./romanian-deadlift.jpg";
+import halfKneelingPress from "./half-kneeling-press.jpg";
+import stepUps from "./step-ups.jpg";
+import birdDog from "./bird-dog.jpg";
+import russianTwist from "./russian-twist.jpg";
+import frogPumps from "./frog-pumps.jpg";
 
-import cleanSquatPress from "./images/clean-squat-press.jpg";
-import singleLegDeadlift from "./images/single-leg-deadlift.jpg";
-import walkingLunges from "./images/walking-lunges.jpg";
-import gluteBridgeMarch from "./images/glute-bridge-march.jpg";
-import heavySwings from "./images/heavy-swings.jpg";
-import mountainClimbers from "./images/mountain-climbers.jpg";
+import cleanSquatPress from "./clean-squat-press.jpg";
+import singleLegDeadlift from "./single-leg-deadlift.jpg";
+import walkingLunges from "./walking-lunges.jpg";
+import gluteBridgeMarch from "./glute-bridge-march.jpg";
+import heavySwings from "./heavy-swings.jpg";
+import mountainClimbers from "./mountain-climbers.jpg";
 
 const workouts = [
   {
