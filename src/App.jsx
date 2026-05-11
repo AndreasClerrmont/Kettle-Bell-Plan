@@ -3,116 +3,119 @@ import React, { useState } from "react";
 const workouts = [
   {
     day: "Montag",
-    title: "Kraft & Spannung",
-    focus: "Ganzkörper • Arme schwer",
-    duration: "40 Min",
+    title: "Full Body Glute Strength",
+    focus: "Po • Beine • Core • Beckenboden",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Supersatz A",
+        name: "Supersatz A — Strength",
         exercises: [
-          "Double Kettlebell Front Squat — 4×6–8",
-          "Weighted Pull-Up oder Renegade Row — 4×6–8",
+          "KB Goblet Squat 16 kg — 4×10–12",
+          "KB One Arm Row 16 kg — 4×10 je Seite",
         ],
       },
       {
-        name: "Supersatz B",
+        name: "Supersatz B — Glute Focus",
         exercises: [
-          "Single Arm Clean & Push Press — 4×6 je Seite",
-          "Turkish Get-Up — 3×1–2 je Seite",
+          "Bulgarian Split Squat 8–16 kg — 3×10 je Bein",
+          "Dead Bug mit Beckenboden-Spannung — 3×12 je Seite",
         ],
       },
       {
-        name: "Arm-Finisher",
+        name: "Supersatz C — Booty Burn",
         exercises: [
-          "Hammer Curl — 3×10",
-          "Overhead Tricep Extension — 3×10",
+          "KB Hip Thrust 16 kg — 4×15",
+          "Suitcase Carry 16 kg — 3×40 Sek je Seite",
         ],
       },
     ],
   },
+
   {
     day: "Dienstag",
-    title: "Explosivität & Athletik",
-    focus: "Snatch • Schulter",
-    duration: "40 Min",
+    title: "Athletic Full Body",
+    focus: "Po • Taille • Kondition • Arme",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Power Block",
+        name: "Supersatz A — Power",
         exercises: [
-          "Kettlebell Snatch — 4×8",
-          "Front Rack Reverse Lunge — 4×8",
+          "KB Swings 16 kg — 5×20",
+          "Push-Up oder KB Floor Press 8 kg — 4×10–12",
         ],
       },
       {
-        name: "Stabilität",
+        name: "Supersatz B — Legs & Core",
         exercises: [
-          "Bottom-Up Press — 3×8",
-          "Single Leg Romanian Deadlift — 3×8",
+          "Front Rack Reverse Lunge 8–16 kg — 4×10 je Bein",
+          "Plank Shoulder Tap — 4×20",
         ],
       },
       {
-        name: "Shoulder Burn",
+        name: "Supersatz C — Winkearme",
         exercises: [
-          "Kettlebell Lateral Raise — 3×15",
-          "Band Pull Apart — 3×20",
+          "Overhead Tricep Extension 8 kg — 3×15",
+          "KB Hammer Curl 8 kg — 3×15",
         ],
       },
     ],
   },
+
   {
     day: "Donnerstag",
-    title: "Volumen & Stabilität",
-    focus: "Hypertrophie • Arm-Pump",
-    duration: "40 Min",
+    title: "Booty Shape & Waist",
+    focus: "Runder Po • Bauch • Haltung",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Supersatz A",
+        name: "Supersatz A — Shape",
         exercises: [
-          "Kettlebell Thruster — 4×10",
-          "Gorilla Row — 4×10",
+          "KB Romanian Deadlift 16 kg — 4×12–15",
+          "Half-Kneeling Press 8 kg — 3×10 je Seite",
         ],
       },
       {
-        name: "Supersatz B",
+        name: "Supersatz B — Upper Glutes",
         exercises: [
-          "Floor Press — 4×10",
-          "Windmill — 3×8",
+          "Step-Ups 8–16 kg — 4×12 je Bein",
+          "Bird Dog mit Pause — 3×12 je Seite",
         ],
       },
       {
-        name: "Arm-Fokus",
+        name: "Supersatz C — Core & Burn",
         exercises: [
-          "Alternating Curl — 3×12",
-          "Close-Grip Push-Up — 3×15",
+          "Russian Twist 8 kg — 4×20",
+          "Frog Pumps — 3×40",
         ],
       },
     ],
   },
+
   {
     day: "Freitag",
-    title: "Power Endurance",
-    focus: "Carry • Conditioning",
-    duration: "40 Min",
+    title: "Strength Endurance",
+    focus: "Ganzkörper • Po hoch • Bauch fest",
+    duration: "35–40 Min",
     blocks: [
       {
-        name: "Complex Block",
+        name: "Supersatz A — Complex",
         exercises: [
-          "Double KB Clean Complex — 4×6",
-          "Pull-Up oder High Pull — 4×8",
+          "KB Clean + Squat + Press 8 kg — 4×8 je Seite",
+          "Single Leg Deadlift 8–16 kg — 4×10 je Bein",
         ],
       },
       {
-        name: "Core + Stabilität",
+        name: "Supersatz B — Glute Stability",
         exercises: [
-          "Walking Lunges — 3×10",
-          "Plank Drag — 3×10",
+          "Walking Lunges 8–16 kg — 3×12 je Bein",
+          "Glute Bridge March — 3×20",
         ],
       },
       {
-        name: "Carry Finisher",
+        name: "Supersatz C — Finisher",
         exercises: [
-          "Bottom-Up Carry — 3×40 Sek",
-          "Heavy Swings — 5 Min EMOM",
+          "Heavy Swings 16 kg — 5×20",
+          "Mountain Climbers — 5×30 Sek",
         ],
       },
     ],
