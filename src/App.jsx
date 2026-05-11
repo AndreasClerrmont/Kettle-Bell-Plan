@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-const trainingDays = [
+const workouts = [
   {
     day: "Montag",
     title: "Kraft & Spannung",
     focus: "Ganzkörper • Arme schwer",
+    duration: "40 Min",
     blocks: [
       {
         name: "Supersatz A",
@@ -29,11 +30,11 @@ const trainingDays = [
       },
     ],
   },
-
   {
     day: "Dienstag",
     title: "Explosivität & Athletik",
-    focus: "Snatch • Schulter-Finisher",
+    focus: "Snatch • Schulter",
+    duration: "40 Min",
     blocks: [
       {
         name: "Power Block",
@@ -58,11 +59,11 @@ const trainingDays = [
       },
     ],
   },
-
   {
     day: "Donnerstag",
     title: "Volumen & Stabilität",
     focus: "Hypertrophie • Arm-Pump",
+    duration: "40 Min",
     blocks: [
       {
         name: "Supersatz A",
@@ -87,11 +88,11 @@ const trainingDays = [
       },
     ],
   },
-
   {
     day: "Freitag",
     title: "Power Endurance",
     focus: "Carry • Conditioning",
+    duration: "40 Min",
     blocks: [
       {
         name: "Complex Block",
@@ -118,14 +119,18 @@ const trainingDays = [
   },
 ];
 
-function storageKey(week, path) {
-  return `kb-${week}-${path}`;
+function keyFor(week, workout, block, exercise, set, type) {
+  return `kb-${week}-${workout}-${block}-${exercise}-${set}-${type}`;
 }
 
 export default function App() {
   const [week, setWeek] = useState(1);
-  const [openDay, setOpenDay] = useState(null);
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
+  const [selectedExercise, setSelectedExercise] = useState(null);
   const [, refresh] = useState(0);
+
+  const activeWorkout =
+    selectedWorkout !== null ? workouts[selectedWorkout] : null;
 
   function save(key, value) {
     localStorage.setItem(key, value);
@@ -137,183 +142,220 @@ export default function App() {
   }
 
   function clearLogs() {
-    if (!confirm("Alle Logs löschen?")) return;
-
+    if (!confirm("Alle Einträge löschen?")) return;
     Object.keys(localStorage)
       .filter((k) => k.startsWith("kb-"))
       .forEach((k) => localStorage.removeItem(k));
-
     refresh((v) => v + 1);
   }
 
+  if (activeWorkout) {
+    return (
+      <main className="min-h-screen bg-slate-100 p-4 text-slate-950">
+        <div className="mx-auto max-w-md">
+          <button
+            onClick={() => {
+              setSelectedWorkout(null);
+              setSelectedExercise(null);
+            }}
+            className="mb-4 rounded-2xl bg-white px-4 py-3 font-black shadow"
+          >
+            ← Zurück
+          </button>
+
+          <section className="mb-4 rounded-3xl bg-slate-950 p-6 text-white shadow-xl">
+            <p className="text-sm font-bold text-slate-400">
+              {activeWorkout.day} • {activeWorkout.duration}
+            </p>
+            <h1 className="mt-2 text-3xl font-black">{activeWorkout.title}</h1>
+            <p className="mt-2 text-slate-300">{activeWorkout.focus}</p>
+          </section>
+
+          <section className="mb-4 rounded-3xl bg-white p-4 shadow">
+            <div className="flex gap-2 overflow-x-auto">
+              {[1, 2, 3, 4, 5].map((w) => (
+                <button
+                  key={w}
+                  onClick={() => setWeek(w)}
+                  className={`rounded-2xl px-4 py-3 font-black ${
+                    week === w
+                      ? "bg-slate-950 text-white"
+                      : "bg-slate-100 text-slate-700"
+                  }`}
+                >
+                  W{w}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-4">
+            {activeWorkout.blocks.map((block, blockIndex) => (
+              <div key={block.name} className="rounded-3xl bg-white p-4 shadow">
+                <h2 className="mb-3 text-xl font-black">{block.name}</h2>
+
+                <div className="space-y-3">
+                  {block.exercises.map((exercise, exerciseIndex) => {
+                    const isOpen =
+                      selectedExercise === `${blockIndex}-${exerciseIndex}`;
+
+                    return (
+                      <div
+                        key={exercise}
+                        className="rounded-3xl bg-slate-50 p-4"
+                      >
+                        <button
+                          onClick={() =>
+                            setSelectedExercise(
+                              isOpen ? null : `${blockIndex}-${exerciseIndex}`
+                            )
+                          }
+                          className="w-full text-left"
+                        >
+                          <h3 className="text-lg font-black">{exercise}</h3>
+                          <p className="mt-1 text-sm text-slate-500">
+                            Tippen zum Eintragen
+                          </p>
+                        </button>
+
+                        {isOpen && (
+                          <div className="mt-4 space-y-3">
+                            {[1, 2, 3, 4].map((set) => {
+                              const weightKey = keyFor(
+                                week,
+                                selectedWorkout,
+                                blockIndex,
+                                exerciseIndex,
+                                set,
+                                "weight"
+                              );
+
+                              const repsKey = keyFor(
+                                week,
+                                selectedWorkout,
+                                blockIndex,
+                                exerciseIndex,
+                                set,
+                                "reps"
+                              );
+
+                              return (
+                                <div
+                                  key={set}
+                                  className="rounded-2xl bg-white p-3 shadow-sm"
+                                >
+                                  <div className="mb-2 font-black">
+                                    Satz {set}
+                                  </div>
+
+                                  <div className="grid grid-cols-2 gap-3">
+                                    <input
+                                      value={load(weightKey)}
+                                      onChange={(e) =>
+                                        save(weightKey, e.target.value)
+                                      }
+                                      placeholder="kg"
+                                      className="h-12 rounded-2xl border px-4 text-lg font-bold"
+                                    />
+
+                                    <input
+                                      value={load(repsKey)}
+                                      onChange={(e) =>
+                                        save(repsKey, e.target.value)
+                                      }
+                                      placeholder="Reps"
+                                      className="h-12 rounded-2xl border px-4 text-lg font-bold"
+                                    />
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </section>
+        </div>
+      </main>
+    );
+  }
+
   return (
-    <main className="min-h-screen bg-slate-100 p-3 text-slate-950">
-      <div className="mx-auto max-w-3xl">
-
-        <header className="rounded-3xl bg-slate-950 p-5 text-white shadow-xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-            Elite Kettlebell Hypertrophy
+    <main className="min-h-screen bg-slate-100 p-4 text-slate-950">
+      <div className="mx-auto max-w-md">
+        <header className="mb-5 rounded-3xl bg-slate-950 p-6 text-white shadow-xl">
+          <p className="text-xs font-black uppercase tracking-widest text-slate-400">
+            Elite Kettlebell
           </p>
-
-          <h1 className="mt-2 text-3xl font-black leading-tight">
-            4-Tage Trainingsplan
+          <h1 className="mt-2 text-4xl font-black leading-tight">
+            Trainingsplan
           </h1>
-
-          <p className="mt-3 text-sm text-slate-300">
-            Ganzkörper • Muskelaufbau • Arme • Schultern • Conditioning
+          <p className="mt-3 text-slate-300">
+            4 Tage • Supersätze • Muskelaufbau
           </p>
         </header>
 
-        <section className="sticky top-0 z-10 mt-4 rounded-3xl bg-white p-4 shadow-lg">
-          <div className="flex gap-2 overflow-x-auto">
+        <section className="mb-5 rounded-3xl bg-white p-4 shadow">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-bold text-slate-500">
+                Aktuelle Woche
+              </p>
+              <h2 className="text-2xl font-black">Woche {week}</h2>
+            </div>
+
+            <button
+              onClick={clearLogs}
+              className="rounded-2xl bg-slate-100 px-4 py-3 font-black"
+            >
+              Log löschen
+            </button>
+          </div>
+
+          <div className="mt-4 flex gap-2 overflow-x-auto">
             {[1, 2, 3, 4, 5].map((w) => (
               <button
                 key={w}
                 onClick={() => setWeek(w)}
-                className={`rounded-2xl px-5 py-3 text-base font-black whitespace-nowrap ${
+                className={`rounded-2xl px-5 py-3 font-black ${
                   week === w
                     ? "bg-slate-950 text-white"
                     : "bg-slate-100 text-slate-700"
                 }`}
               >
-                Woche {w}
+                {w}
               </button>
             ))}
           </div>
-
-          <div className="mt-4 flex items-center justify-between">
-            <div>
-              <h2 className="text-lg font-black">
-                Tracking • Woche {week}
-              </h2>
-
-              <p className="text-sm text-slate-500">
-                Gewicht & Reps speichern
-              </p>
-            </div>
-
-            <button
-              onClick={clearLogs}
-              className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-bold"
-            >
-              Log löschen
-            </button>
-          </div>
         </section>
 
-        <section className="mt-4 grid gap-4">
-          {trainingDays.map((day, dayIndex) => (
-            <article
-              key={day.day}
-              className="overflow-hidden rounded-3xl bg-white shadow-lg"
+        <section className="space-y-4">
+          {workouts.map((workout, index) => (
+            <button
+              key={workout.day}
+              onClick={() => setSelectedWorkout(index)}
+              className="w-full rounded-3xl bg-white p-5 text-left shadow-lg"
             >
-              <button
-                onClick={() =>
-                  setOpenDay(openDay === dayIndex ? null : dayIndex)
-                }
-                className="w-full p-5 text-left"
-              >
-                <div className="mb-2 flex gap-2">
-                  <span className="rounded-full bg-slate-950 px-3 py-1 text-sm font-bold text-white">
-                    {day.day}
-                  </span>
+              <div className="mb-3 flex items-center justify-between">
+                <span className="rounded-full bg-slate-950 px-3 py-1 text-sm font-black text-white">
+                  {workout.day}
+                </span>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-black text-slate-700">
+                  {workout.duration}
+                </span>
+              </div>
 
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-bold text-slate-700">
-                    40 Min
-                  </span>
-                </div>
+              <h2 className="text-2xl font-black">{workout.title}</h2>
+              <p className="mt-1 text-slate-600">{workout.focus}</p>
 
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h2 className="text-2xl font-black">
-                      {day.title}
-                    </h2>
-
-                    <p className="mt-1 text-slate-600">
-                      {day.focus}
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-slate-100 px-4 py-3 text-xl font-black">
-                    {openDay === dayIndex ? "⌃" : "⌄"}
-                  </div>
-                </div>
-              </button>
-
-              {openDay === dayIndex && (
-                <div className="space-y-4 border-t bg-slate-50 p-4">
-
-                  {day.blocks.map((block, blockIndex) => (
-                    <div
-                      key={block.name}
-                      className="rounded-3xl bg-white p-4 shadow-sm"
-                    >
-                      <h3 className="text-xl font-black">
-                        {block.name}
-                      </h3>
-
-                      <div className="mt-4 space-y-5">
-                        {block.exercises.map((exercise, exIndex) => (
-                          <div
-                            key={exercise}
-                            className="rounded-2xl bg-slate-100 p-4"
-                          >
-                            <h4 className="text-lg font-black">
-                              {exercise}
-                            </h4>
-
-                            <div className="mt-4 grid gap-3">
-                              {[1, 2, 3, 4].map((set) => {
-                                const weightKey = storageKey(
-                                  week,
-                                  `${dayIndex}-${blockIndex}-${exIndex}-${set}-weight`
-                                );
-
-                                const repsKey = storageKey(
-                                  week,
-                                  `${dayIndex}-${blockIndex}-${exIndex}-${set}-reps`
-                                );
-
-                                return (
-                                  <div
-                                    key={set}
-                                    className="rounded-2xl bg-white p-3"
-                                  >
-                                    <div className="mb-2 text-base font-black">
-                                      Satz {set}
-                                    </div>
-
-                                    <div className="grid grid-cols-2 gap-3">
-                                      <input
-                                        value={load(weightKey)}
-                                        onChange={(e) =>
-                                          save(weightKey, e.target.value)
-                                        }
-                                        placeholder="kg"
-                                        className="h-12 rounded-2xl border px-4 text-lg"
-                                      />
-
-                                      <input
-                                        value={load(repsKey)}
-                                        onChange={(e) =>
-                                          save(repsKey, e.target.value)
-                                        }
-                                        placeholder="Reps"
-                                        className="h-12 rounded-2xl border px-4 text-lg"
-                                      />
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </article>
+              <div className="mt-4 rounded-2xl bg-slate-100 px-4 py-3 text-center font-black">
+                Training öffnen →
+              </div>
+            </button>
           ))}
         </section>
       </div>
