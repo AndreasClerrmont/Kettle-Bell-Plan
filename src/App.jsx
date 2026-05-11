@@ -1,121 +1,119 @@
 import React, { useState } from "react";
+import FemalePlan from "./FemalePlan.jsx";
 
-const workouts = [
+const maleWorkouts = [
   {
     day: "Montag",
-    title: "Full Body Glute Strength",
-    focus: "Po • Beine • Core • Beckenboden",
-    duration: "35–40 Min",
+    title: "Kraft & Spannung",
+    focus: "Ganzkörper • schwere Spannung • Arme schwer",
+    duration: "40 Min",
     blocks: [
       {
-        name: "Supersatz A — Strength",
+        name: "Supersatz A",
         exercises: [
-          "KB Goblet Squat 16 kg — 4×10–12",
-          "KB One Arm Row 16 kg — 4×10 je Seite",
+          "Double Kettlebell Front Squat — 4×6–8",
+          "Weighted Pull-Up oder Renegade Row — 4×6–8",
         ],
       },
       {
-        name: "Supersatz B — Glute Focus",
+        name: "Supersatz B",
         exercises: [
-          "Bulgarian Split Squat 8–16 kg — 3×10 je Bein",
-          "Dead Bug mit Beckenboden-Spannung — 3×12 je Seite",
+          "Single Arm Clean & Push Press — 4×6 je Seite",
+          "Turkish Get-Up — 3×1–2 je Seite",
         ],
       },
       {
-        name: "Supersatz C — Booty Burn",
+        name: "Arm-Finisher",
         exercises: [
-          "KB Hip Thrust 16 kg — 4×15",
-          "Suitcase Carry 16 kg — 3×40 Sek je Seite",
+          "Hammer Curl — 3×10",
+          "Overhead Tricep Extension — 3×10",
         ],
       },
     ],
   },
-
   {
     day: "Dienstag",
-    title: "Athletic Full Body",
-    focus: "Po • Taille • Kondition • Arme",
-    duration: "35–40 Min",
+    title: "Explosivität & Athletik",
+    focus: "Ganzkörper • Snatch • Schulter-Finisher",
+    duration: "40 Min",
     blocks: [
       {
-        name: "Supersatz A — Power",
+        name: "Power Block",
         exercises: [
-          "KB Swings 16 kg — 5×20",
-          "Push-Up oder KB Floor Press 8 kg — 4×10–12",
+          "Kettlebell Snatch — 4×8 je Seite",
+          "Front Rack Reverse Lunge — 4×8 je Bein",
         ],
       },
       {
-        name: "Supersatz B — Legs & Core",
+        name: "Stabilität",
         exercises: [
-          "Front Rack Reverse Lunge 8–16 kg — 4×10 je Bein",
-          "Plank Shoulder Tap — 4×20",
+          "Bottom-Up Press — 3×8",
+          "Single Leg Romanian Deadlift — 3×8",
         ],
       },
       {
-        name: "Supersatz C — Winkearme",
+        name: "Shoulder Burn",
         exercises: [
-          "Overhead Tricep Extension 8 kg — 3×15",
-          "KB Hammer Curl 8 kg — 3×15",
+          "Kettlebell Lateral Raise — 3×12–15",
+          "Burpees + Swings + Mountain Climbers — 5 Min AMRAP",
         ],
       },
     ],
   },
-
   {
     day: "Donnerstag",
-    title: "Booty Shape & Waist",
-    focus: "Runder Po • Bauch • Haltung",
-    duration: "35–40 Min",
+    title: "Volumen & Stabilität",
+    focus: "Ganzkörper • Hypertrophie • Arm-Pump",
+    duration: "40 Min",
     blocks: [
       {
-        name: "Supersatz A — Shape",
+        name: "Supersatz A",
         exercises: [
-          "KB Romanian Deadlift 16 kg — 4×12–15",
-          "Half-Kneeling Press 8 kg — 3×10 je Seite",
+          "Kettlebell Thruster — 4×10",
+          "Gorilla Row — 4×10",
         ],
       },
       {
-        name: "Supersatz B — Upper Glutes",
+        name: "Supersatz B",
         exercises: [
-          "Step-Ups 8–16 kg — 4×12 je Bein",
-          "Bird Dog mit Pause — 3×12 je Seite",
+          "Floor Press — 4×10",
+          "Windmill — 3×8 je Seite",
         ],
       },
       {
-        name: "Supersatz C — Core & Burn",
+        name: "Arm-Fokus",
         exercises: [
-          "Russian Twist 8 kg — 4×20",
-          "Frog Pumps — 3×40",
+          "Alternating Curl — 3×12",
+          "Close-Grip Push-Up — 3×12–15",
         ],
       },
     ],
   },
-
   {
     day: "Freitag",
-    title: "Strength Endurance",
-    focus: "Ganzkörper • Po hoch • Bauch fest",
-    duration: "35–40 Min",
+    title: "Power Endurance & Conditioning",
+    focus: "Ganzkörper • Complex • Carry-Stabilität",
+    duration: "40 Min",
     blocks: [
       {
-        name: "Supersatz A — Complex",
+        name: "Complex Block",
         exercises: [
-          "KB Clean + Squat + Press 8 kg — 4×8 je Seite",
-          "Single Leg Deadlift 8–16 kg — 4×10 je Bein",
+          "Double KB Clean Complex — 4×6",
+          "Pull-Up oder High Pull — 4×8",
         ],
       },
       {
-        name: "Supersatz B — Glute Stability",
+        name: "Core + Stabilität",
         exercises: [
-          "Walking Lunges 8–16 kg — 3×12 je Bein",
-          "Glute Bridge March — 3×20",
+          "Walking Lunges — 3×10 je Bein",
+          "Plank Drag — 3×10 je Seite",
         ],
       },
       {
-        name: "Supersatz C — Finisher",
+        name: "Carry Finisher",
         exercises: [
-          "Heavy Swings 16 kg — 5×20",
-          "Mountain Climbers — 5×30 Sek",
+          "Bottom-Up Carry oder Overhead Carry — 3×30–40 Sek",
+          "Heavy Swings + Burpees — 5 Min",
         ],
       },
     ],
@@ -123,18 +121,17 @@ const workouts = [
 ];
 
 function keyFor(week, workout, block, exercise, set, type) {
-  return `kb-${week}-${workout}-${block}-${exercise}-${set}-${type}`;
+  return `male-kb-${week}-${workout}-${block}-${exercise}-${set}-${type}`;
 }
 
-export default function App() {
-  const [activePlan, setActivePlan] = useState("male");
+function MalePlan() {
   const [week, setWeek] = useState(1);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
   const [selectedExercise, setSelectedExercise] = useState(null);
   const [, refresh] = useState(0);
 
   const activeWorkout =
-    selectedWorkout !== null ? workouts[selectedWorkout] : null;
+    selectedWorkout !== null ? maleWorkouts[selectedWorkout] : null;
 
   function save(key, value) {
     localStorage.setItem(key, value);
@@ -148,39 +145,13 @@ export default function App() {
   function clearLogs() {
     if (!confirm("Alle Einträge löschen?")) return;
     Object.keys(localStorage)
-      .filter((k) => k.startsWith("kb-"))
+      .filter((k) => k.startsWith("male-kb-"))
       .forEach((k) => localStorage.removeItem(k));
     refresh((v) => v + 1);
   }
 
   if (activeWorkout) {
     return (
-      <div className="flex gap-2 mb-6">
-  <button
-    onClick={() => setActivePlan("male")}
-    className={`px-4 py-2 rounded-xl font-bold ${
-      activePlan === "male"
-        ? "bg-black text-white"
-        : "bg-gray-200"
-    }`}
-  >
-    Männerplan
-  </button>
-
-  <button
-    onClick={() => setActivePlan("female")}
-    className={`px-4 py-2 rounded-xl font-bold ${
-      activePlan === "female"
-        ? "bg-pink-500 text-white"
-        : "bg-gray-200"
-    }`}
-  >
-    Frauenplan
-  </button>
-</div>
-      {activePlan === "female" ? (
-  <FemalePlan />
-) : (
       <main className="min-h-screen bg-slate-100 p-4 text-slate-950">
         <div className="mx-auto max-w-md">
           <button
@@ -197,7 +168,9 @@ export default function App() {
             <p className="text-sm font-bold text-slate-400">
               {activeWorkout.day} • {activeWorkout.duration}
             </p>
-            <h1 className="mt-2 text-3xl font-black">{activeWorkout.title}</h1>
+            <h1 className="mt-2 text-3xl font-black">
+              {activeWorkout.title}
+            </h1>
             <p className="mt-2 text-slate-300">{activeWorkout.focus}</p>
           </section>
 
@@ -322,7 +295,7 @@ export default function App() {
             Elite Kettlebell
           </p>
           <h1 className="mt-2 text-4xl font-black leading-tight">
-            Trainingsplan
+            Männerplan
           </h1>
           <p className="mt-3 text-slate-300">
             4 Tage • Supersätze • Muskelaufbau
@@ -364,7 +337,7 @@ export default function App() {
         </section>
 
         <section className="space-y-4">
-          {workouts.map((workout, index) => (
+          {maleWorkouts.map((workout, index) => (
             <button
               key={workout.day}
               onClick={() => setSelectedWorkout(index)}
@@ -390,6 +363,41 @@ export default function App() {
         </section>
       </div>
     </main>
-    )}
+  );
+}
+
+export default function KettlebellTrainingApp() {
+  const [activePlan, setActivePlan] = useState("male");
+
+  return (
+    <div>
+      <div className="sticky top-0 z-50 bg-white/90 px-4 py-3 shadow-sm backdrop-blur">
+        <div className="mx-auto flex max-w-md gap-2">
+          <button
+            onClick={() => setActivePlan("male")}
+            className={`flex-1 rounded-2xl px-4 py-3 text-sm font-black ${
+              activePlan === "male"
+                ? "bg-slate-950 text-white"
+                : "bg-slate-100 text-slate-700"
+            }`}
+          >
+            Männerplan
+          </button>
+
+          <button
+            onClick={() => setActivePlan("female")}
+            className={`flex-1 rounded-2xl px-4 py-3 text-sm font-black ${
+              activePlan === "female"
+                ? "bg-rose-500 text-white"
+                : "bg-slate-100 text-slate-700"
+            }`}
+          >
+            Frauenplan
+          </button>
+        </div>
+      </div>
+
+      {activePlan === "female" ? <FemalePlan /> : <MalePlan />}
+    </div>
   );
 }
