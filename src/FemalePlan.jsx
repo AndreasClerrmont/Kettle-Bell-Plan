@@ -43,7 +43,7 @@ const workouts = [
             sets: 4,
             reps: "10–12",
             weight: "16 kg",
-            image: gobletSquat,
+            image: goblet-squat,
             note: "Langsam runter, explosiv hoch. Po oben aktiv anspannen.",
           },
           {
